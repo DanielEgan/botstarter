@@ -41,7 +41,7 @@ getFileNames('./app/recognizers')
 
 getFileNames('./app/dialogs')
     .map(file => Object.assign(file, { fx: require(file.path) }))
-    .forEach(dialog => dialog.fx || dialog.fx(dialog.name, bot));
+    .forEach(dialog => dialog.fx(dialog.name, bot));
 
 // middleware
 bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
